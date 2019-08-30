@@ -102,5 +102,5 @@ test = function(model,n){
     pval[i] = mean(abs(observed[i]) <= abs(null[i,])) # p value
   }
   return(p_val)
-
+}
 
