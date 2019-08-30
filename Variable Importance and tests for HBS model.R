@@ -1,7 +1,6 @@
 options(java.parameters = "-Xmx5000m")
 library(bartMachine)
 library(ICEbox)
-library('xlsx')
 library(ggplot2)
 library('gtools')
 
@@ -34,7 +33,7 @@ partial_dependence = function(surv.output, feature){
 feature_selection = function(surv.output){
   y = as.numeric(colMeans(surv.output$beta.train))
   bart = bartMachine(X=X, y=y, verbose=FALSE)
-  return(var_selection_by_permute(bart))
+  return(var_selection_by_permute(bart,plot=FALSE))
 }
 
 
@@ -69,7 +68,7 @@ ice_plot = function(surv.output, feature,centered){
   return(plot(surv.ice, x_quantile = TRUE, plot_pdp = TRUE,centered = centered))
 }
 
-## Rank test for individual significance of a variable
+## Permutation test for individual significance of a variable
 
 observed_effect = function(model){
   X = subset(dat,select=-c(Survival,Status))
