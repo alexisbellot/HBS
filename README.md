@@ -2,7 +2,7 @@
 
 This is an R implementation of the paper ["A Hierarchical Bayesian Model for Personalized Survival Predictions"](http://medianetlab.ee.ucla.edu/papers/FINAL_A_Hierarchical_Bayesian_Model_for_Personalized_Survival_Predictions.pdf). 
 
-In this project we propose a probabilistic survival model which flexibly captures individual traits through a hierarchical latent variable formulation. We estimate survival trajectories by jointly sampling the location and shape of the individual survival distribution resulting in patient-specific curves with quantifiable uncertainty estimates. Our aim is to improve o improve predictions by making them personalized to the patient-at-hand, to better understand diseases and their risk factors, and to provide interpretable model outputs to clinicians
+In this project we propose a probabilistic survival model which flexibly captures individual traits through a hierarchical latent variable formulation. We estimate survival trajectories by jointly sampling the location and shape of the individual survival distribution resulting in patient-specific curves with quantifiable uncertainty estimates. Our aim is to improve predictions by making them personalized to the patient-at-hand, to better understand diseases and their risk factors, and to provide interpretable model outputs to clinicians
 
 *Please cite the above paper if this resource is used in any publication*
 
