@@ -2,6 +2,27 @@
 
 HBS <-function(X.train,Y.train,X.test,n.iter,sigma.prior.bart=10,ntree, n.group,
                            burn.in=1,thinning=1){
+  ## Inputs:
+  # - X.train: dataframe with training features. 
+  # - X.test: dataframe with testing features. 
+  # - Y.train: dataframe with outuput features, censoring labelled "Status" is coded with a 0 and 
+  #            death labelled "Survival" with 1.
+  # - n.iter: number of MCMC iterations to approximate the posterior distributions
+  # - ntree: number of trees in regression model used to estimate beta
+  # - n.group: number of groups that we allow to have a differing survival shape
+  # - burn.in: number of MCMC iterations discarded as burn-in
+  # - thinning: include only 1 in every "thinning" iterations of the MCMC sampler to ensure independent samples
+  
+  
+  ## Outputs:
+  # - beta.train: sequence of draws from the posterior distribution of beta parameters for the training data - location parameter
+  # - beta.jump.mat: matrix of jumping probabilities to a new proposed beta value in every iteration of sampler
+  # - beta.test: sequence of draws from the posterior distribution of beta parameters for the test data
+  # - logsig.mat: sequence of draws from the posterior distribution of log(sigma) parameters - scale parameter
+  # - logsig.jump.mat: matrix of jumping probabilities to a new proposed log(sigma) value in every iteration of sampler
+  # - loglam.mat: sequence of draws from the posterior distribution of lambda parameters - shape parameter
+  # - loglam.jump.mat: matrix of jumping probabilities to a new proposed lambda value in every iteration of sampler
+  # - Other parameters are internal used for the purpose of debugging
   
   ### import libraries
   library(BayesTree)
